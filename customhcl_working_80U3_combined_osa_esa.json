@@ -1,0 +1,175 @@
+{
+    "timestamp":1723456996,
+    "jsonUpdatedTime":"August 6, 2024, 1:31 AM PDT",
+    "totalCount": 4,
+    "supportedReleases": [
+      "ESXi 8.0 U3"
+    ],
+    "data": {
+      "controller": [
+            {
+                "id": 10001,
+                "releases": {
+                    "ESXi 8.0 U3": {
+                        "nvme_pcie": {
+                            "1.2.4.15-1vmw.803": {
+                                "type": "inbox",
+                                "queueDepth": "256",
+                                "firmwares": [
+                                    {
+                                        "firmware": "1.3",
+                                        "vsanSupport": [
+                                            "Hybrid:Pass-Through",
+                                            "All Flash:Pass-Through",
+                                            "vSAN ESA"
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "vsanSupport": [
+                            "Hybrid:Pass-Through",
+                            "All Flash:Pass-Through"
+                        ]
+                    }
+                }
+              },
+              {
+                  "id": 10002,
+                  "releases": {
+                      "ESXi 8.0 U3": {
+                          "pvscsi": {
+                              "0.1-7vmw.803": {
+                                  "type": "inbox",
+                                  "queueDepth": "256",
+                                  "firmwares": [
+                                      {
+                                          "firmware": "2.0",
+                                          "vsanSupport": [
+                                              "Hybrid:Pass-Through",
+                                              "All Flash:Pass-Through",
+                                              "vSAN ESA"
+                                          ]
+                                      }
+                                  ]
+                              }
+                          },
+                          "vsanSupport": [
+                              "Hybrid:Pass-Through",
+                              "All Flash:Pass-Through"
+                          ]
+                      }
+                  }
+                }
+            ],
+      "ssd": [
+        {
+          "id": 10003,
+          "model": "Virtual NVMe controller #1",
+          "vid": "15ad",
+          "did": "07f0",
+          "svid": "15ad",
+          "ssid": "07f0",
+          "vcglink": "http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=ssd&productid=10000",
+          "vendor": "NVMe",
+          "devicetype": "NVMe",
+          "capacity": 512,
+          "productid": "VMware Virtual NVMe Disk",
+          "vsanSupport": {
+              "mode": [
+                  "vSAN ESA",
+                  "vSAN"
+              ],
+              "tier": [
+                "AF-Cache",
+                "vSANESA-Singletier",
+	            	"AF-Cap"
+              ]
+          },
+          "releases": {
+            "ESXi 8.0 U3": {
+              "vsanSupport": [
+                "All Flash:",
+                "vSANESA-SingleTier"
+              ],
+              "nvme_pcie": {
+                "1.2.4.15-1vmw.803.0.0.24022510": {
+                  "firmwares": [
+                    {
+                      "firmware": "1.3",
+                      "vsanSupport": {
+                        "tier": [
+                          "AF-Cache",
+                          "vSANESA-Singletier",
+                          "AF-Cap"
+                        ],
+                        "mode": [
+                          "vSAN",
+                          "vSAN ESA"
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "inbox"
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": 10004,
+          "model": "VMware Inc. PVSCSI SCSI Controller",
+          "vid": "15ad",
+          "did": "07c0",
+          "svid": "15ad",
+          "ssid": "07c0",
+          "vcglink": "http://www.vmware.com/resources/compatibility/detail.php?deviceCategory=ssd&productid=10000",
+          "vendor": "VMware",
+          "devicetype": "Virtual Disk",
+          "capacity": 512,
+          "productid": "VMware Virtual Disk",
+          "vsanSupport": {
+              "mode": [
+                  "vSAN ESA",
+                  "vSAN"
+              ],
+              "tier": [
+                "AF-Cache",
+                "vSANESA-Singletier",
+	            	"AF-Cap"
+              ]
+          },
+          "releases": {
+            "ESXi 8.0 U3": {
+              "vsanSupport": [
+                "All Flash:",
+                "vSANESA-SingleTier"
+              ],
+              "pvscsi": {
+                "0.1-7vmw.803.0.0.24022510": {
+                  "firmwares": [
+                    {
+                      "firmware": "2.0",
+                      "vsanSupport": {
+                        "tier": [
+                          "AF-Cache",
+                          "vSANESA-Singletier",
+                          "AF-Cap"
+                        ],
+                        "mode": [
+                          "vSAN",
+                          "vSAN ESA"
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "inbox"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "eula": {}
+  }
