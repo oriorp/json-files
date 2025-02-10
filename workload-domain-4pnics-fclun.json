@@ -1,0 +1,268 @@
+{
+  "domainName": "sfo-w01",
+  "orgName": "Rainpole",
+  "vcenterSpec": {
+    "name": "sfo-w01-vc01",
+    "networkDetailsSpec": {
+      "ipAddress": "10.11.10.130",
+      "dnsName": "sfo-w01-vc01.sfo.rainpole.io",
+      "gateway": "10.11.10.1",
+      "subnetMask": "255.255.255.0"
+    },
+    "rootPassword": "XXXXXXX",
+    "datacenterName": "sfo-w01-DC",
+    "vmSize": "small"
+  },
+  "computeSpec": {
+    "clusterSpecs": [
+      {
+        "name": "sfo-w01-cl01",
+        "hostSpecs": [
+          {
+            "id": "dacb78ed-32ff-47b2-a106-883b93bd5be9",
+            "hostname": "sfo01-w01-r01-esx01.sfo.rainpole.io",
+            "hostNetworkSpec": {
+              "vmNics": [
+                {
+                  "id": "vmnic0",
+                  "vdsName": "sfo-w01-cl01-vds01",
+                  "uplink": "uplink1"
+                },
+                {
+                  "id": "vmnic1",
+                  "vdsName": "sfo-w01-cl01-vds01",
+                  "uplink": "uplink2"
+                },
+                {
+                  "id": "vmnic2",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "uplink": "uplink1"
+                },
+                {
+                  "id": "vmnic3",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "uplink": "uplink2"
+                }
+              ]
+            },
+            "licenseKey": "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+          },
+          {
+            "id": "f743c319-b76a-49fc-8721-4f95f121c30f",
+            "hostname": "sfo01-w01-r01-esx02.sfo.rainpole.io",
+            "hostNetworkSpec": {
+              "vmNics": [
+                {
+                  "id": "vmnic0",
+                  "vdsName": "sfo-w01-cl01-vds01",
+                  "uplink": "uplink1"
+                },
+                {
+                  "id": "vmnic1",
+                  "vdsName": "sfo-w01-cl01-vds01",
+                  "uplink": "uplink2"
+                },
+                {
+                  "id": "vmnic2",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "uplink": "uplink1"
+                },
+                {
+                  "id": "vmnic3",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "uplink": "uplink2"
+                }
+              ]
+            },
+            "licenseKey": "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+          },
+          {
+            "id": "5dff831c-f61b-4744-bd12-89d0008e142f",
+            "hostname": "sfo01-w01-r01-esx03.sfo.rainpole.io",
+            "hostNetworkSpec": {
+              "vmNics": [
+                {
+                  "id": "vmnic0",
+                  "vdsName": "sfo-w01-cl01-vds01",
+                  "uplink": "uplink1"
+                },
+                {
+                  "id": "vmnic1",
+                  "vdsName": "sfo-w01-cl01-vds01",
+                  "uplink": "uplink2"
+                },
+                {
+                  "id": "vmnic2",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "uplink": "uplink1"
+                },
+                {
+                  "id": "vmnic3",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "uplink": "uplink2"
+                }
+              ]
+            },
+            "licenseKey": "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+          }
+        ],
+        "datastoreSpec": {
+          "vmfsDatastoreSpec": {
+                    "fcSpec": [ {
+                        "datastoreName": "myfclun"
+                    } ]
+          }
+        },
+        "networkSpec": {
+          "vdsSpecs": [
+            {
+              "name": "sfo-w01-cl01-vds01",
+              "mtu": 9000,
+              "portGroupSpecs": [
+                {
+                  "name": "sfo-w01-cl01-vds01-pg-esxi-mgmt",
+                  "transportType": "MANAGEMENT",
+                  "standByUplinks": [],
+                  "teamingPolicy": "loadbalance_loadbased",
+                  "activeUplinks": [
+                    "uplink1",
+                    "uplink2"
+                  ]
+                },
+                {
+                  "name": "sfo-w01-cl01-vds01-pg-vmotion",
+                  "transportType": "VMOTION",
+                  "standByUplinks": [],
+                  "teamingPolicy": "loadbalance_loadbased",
+                  "activeUplinks": [
+                    "uplink1",
+                    "uplink2"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "sfo-w01-cl01-vds02",
+              "mtu": 9000,
+              "nsxtSwitchConfig": {
+                "hostSwitchOperationalMode": "STANDARD",
+                "transportZones": [
+                  {
+                    "name": "nsx-vlan-transportzone",
+                    "transportType": "VLAN"
+                  },
+                  {
+                    "name": "overlay-tz-sfo-w01-nsx01",
+                    "transportType": "OVERLAY"
+                  }
+                ]
+              }
+            }
+          ],
+          "networkProfiles": [
+            {
+              "isDefault": true,
+              "name": "sfo-w01-sfo-w01-cl01-r01-network-profile",
+              "nsxtHostSwitchConfigs": [
+                {
+                  "ipAddressPoolName": "sfo-w01-r01-ip-pool01-host",
+                  "uplinkProfileName": "sfo-w01-r01-uplink-profile01",
+                  "vdsName": "sfo-w01-cl01-vds02",
+                  "vdsUplinkToNsxUplink": [
+                    {
+                      "nsxUplinkName": "uplink1",
+                      "vdsUplinkName": "uplink1"
+                    },
+                    {
+                      "nsxUplinkName": "uplink2",
+                      "vdsUplinkName": "uplink2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "nsxClusterSpec": {
+            "nsxTClusterSpec": {
+              "ipAddressPoolsSpec": [
+                {
+                  "name": "sfo-w01-r01-ip-pool01-host",
+                  "subnets": [
+                    {
+                      "cidr": "10.13.14.0/24",
+                      "gateway": "10.13.14.1",
+                      "ipAddressPoolRanges": [
+                        {
+                          "start": "10.13.14.101",
+                          "end": "10.13.14.132"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "uplinkProfiles": [
+                {
+                  "name": "sfo-w01-r01-uplink-profile01",
+                  "transportVlan": 1314,
+                  "teamings": [
+                    {
+                      "name": "DEFAULT",
+                      "policy": "LOADBALANCE_SRCID",
+                      "standByUplinks": [],
+                      "activeUplinks": [
+                        "uplink1",
+                        "uplink2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "clusterImageId": "c533f136-03a5-4a8b-8492-fd4b75912087"
+      }
+    ]
+  },
+  "nsxTSpec": {
+    "formFactor": "MEDIUM",
+    "nsxManagerSpecs": [
+      {
+        "name": "sfo-w01-nsx01a",
+        "networkDetailsSpec": {
+          "ipAddress": "10.11.10.132",
+          "dnsName": "sfo-w01-nsx01a.sfo.rainpole.io",
+          "gateway": "10.11.10.1",
+          "subnetMask": "255.255.255.0"
+        }
+      },
+      {
+        "name": "sfo-w01-nsx01b",
+        "networkDetailsSpec": {
+          "ipAddress": "10.11.10.133",
+          "dnsName": "sfo-w01-nsx01b.sfo.rainpole.io",
+          "gateway": "10.11.10.1",
+          "subnetMask": "255.255.255.0"
+        }
+      },
+      {
+        "name": "sfo-w01-nsx01c",
+        "networkDetailsSpec": {
+          "ipAddress": "10.11.10.134",
+          "dnsName": "sfo-w01-nsx01c.sfo.rainpole.io",
+          "gateway": "10.11.10.1",
+          "subnetMask": "255.255.255.0"
+        }
+      }
+    ],
+    "vip": "10.11.10.131",
+    "vipFqdn": "sfo-w01-nsx01.sfo.rainpole.io",
+    "nsxManagerAdminPassword": "XXXXXXXXXXXX",
+    "licenseKey": "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+  },
+  "ssoDomainSpec": {
+    "ssoDomainName": "sfo-w01.local",
+    "ssoDomainPassword": "XXXXXXX"
+  }
+}
